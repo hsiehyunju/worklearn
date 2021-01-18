@@ -5,6 +5,8 @@
 - [字串](#字串)
 - [方法](#方法)
     - [呼叫方法-不傳遞參數](#呼叫方法不傳遞參數)
+    - [呼叫方法-傳遞參數](#呼叫方法傳遞參數)
+- [類別](#類別)
 
 
 # 字串
@@ -12,7 +14,7 @@
 ```objective-c
 name = @"王大明";
 ```
-C#　中的字串
+C# 中的字串
 ```csharp
 name = "王大明";
 ```
@@ -57,3 +59,61 @@ C#
 data.SetName("大明","王");
 ```
 
+# 類別
+Objective-C 中的類別分為兩個部分，分別是 `Interface(定義)` 文件副檔名為 `.h` 和 `Implementation(實現)` 文件副檔名為 `.m`
+> Interface 的概念最接近的是C、C++裡的 Header files 標頭檔，在 Objective-C 中它與 Implementation 是成雙成對出現，用意是公開(public)方法的實現，以及定義私有（private）變數及方法。
+
+新增一個 User 類別內有兩個字串變數、一個無回傳並有參數的 `SetName` 方法、一個有字串回傳的 `GetName` 方法。
+
+Objective-C Interface User.h
+```objective-c
+@interface User : NSObject
+
+-(void) SetName: (NSString*)_firstName lastName:(NSString*)_lastname;
+-(NSString*) GetName ;
+
+@end
+```
+
+Objective-C Implementation User.m
+```objective-c
+#import "User.h"
+
+@implementation Test {
+    NSString *lastName;
+    NSString *firstName;
+}
+
+-(void) SetName: (NSString*)_firstName lastName:(NSString*)_lastname
+{
+    firstName = _firstName;
+    lastName = _lastname;
+}
+
+-(NSString*) GetName {
+    return [NSString stringWithFormat:@"%@%@", firstName, lastName];
+}
+
+@end
+```
+
+C# User.cs
+```csharp
+public class User 
+{
+    private string lastName;
+    private string firstName;
+
+    public void SetName(string _lastName, string _firstName)
+    {
+        lastName = _lastName;
+        firstName = _firstName;
+    }    
+
+    public string GetName()
+    {
+        return String.Format("{0}{1}", firstName, lastName);
+        // return $"{firstName}{lastName}";
+    }
+}
+```
