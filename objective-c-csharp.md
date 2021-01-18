@@ -20,7 +20,7 @@ name = "王大明";
 # 方法
 
 ### 呼叫方法(不傳遞參數)
-呼叫 data 物件下的 GetName 方法時：
+呼叫 `data` 物件下的 `GetName` 方法時：
 
 Objective-C
 ```objective-c
@@ -33,7 +33,7 @@ data.GetName();
 ```
 
 ### 呼叫方法(傳遞參數)
-呼叫 data 物件下的 SetName 方法，並傳遞一個字串參數時：
+呼叫 `data` 物件下的 `SetName` 方法，並傳遞一個字串參數時：
 
 Objective-C
 ```objective-c
@@ -44,3 +44,16 @@ C#
 ```csharp
 data.SetName("王大明");
 ```
+
+呼叫 `data` 物件下的 `SetName` 方法，並傳遞多個字串參數時：
+
+Objective-C-
+```objective-c
+[data SetName:@"大明" lastName:@"王"];
+```
+
+C#
+```csharp
+data.SetName("大明","王");
+```
+
