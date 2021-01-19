@@ -1,5 +1,6 @@
 # Objective-C 學習歷程
 已有 C# 基礎，因工作需求學習 Objective-C 而做的兩種語言比較，可以讓自己以後快速翻閱。
+參考原文連結 : [iOS開發60分鐘入門](#https://github.com/qinjx/30min_guides/blob/master/ios.md) (Java對照)
 
 # 目錄
 - [字串](#字串)
@@ -201,4 +202,14 @@ C#
 ```csharp
 public interface InterfaceA {}
 public interface InterfaceB : InterfaceA {}
+```
+### 可選方法
+在 Objective-C 中，協議可以宣告可選方法，讓繼承的類別可以選擇是否實現。
+
+Objective-C
+```objective-c
+@protocol Printable
+@optional
+	-(void)print:(NSString)str;
+@end
 ```
