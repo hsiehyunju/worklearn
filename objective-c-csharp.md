@@ -15,6 +15,8 @@
 - [協議](#協議)
     - [定義](#協議的定義)
     - [繼承](#協議的繼承)
+    - [Optional](#可選方法)
+    - [實作](#實作)
 
 
 # 字串
@@ -205,7 +207,7 @@ public interface InterfaceA {}
 public interface InterfaceB : InterfaceA {}
 ```
 ### 可選方法
-在 Objective-C 中，協議可以宣告可選方法，讓繼承的類別可以選擇是否實現。
+在 Objective-C 中，協議可以宣告可選方法，使用 `optional` 關鍵字能讓繼承的類別可以選擇是否實現。
 
 Objective-C
 ```objective-c
@@ -218,3 +220,16 @@ Objective-C
 在 C# 中，`介面(interface)` 所定義的方法，都是必須被實現的，若有相關需求請使用 `抽象類別(abstract)` 。
 > 對於 C# 中 `interface`、`abstract`、`virtual` 的使用方式，可參考[此連結](https://dotblogs.com.tw/enet/2017/01/04/122935)
 
+### 實作
+Objective-C : TestClass 繼承 NSObject 並且實作 Protocol1、Protocol2 兩個協議。
+```objective-c
+@interface TestClass : NSObject <Protocol1, Protocol2>
+@end
+```
+C# : TestClass 繼承 BaseClass 並且實作 IProtocol1、IProtocol2 兩個介面。
+```csharp
+public class TestClass : BaseClass, IProtocol1, IProtocol2
+{
+	;
+}
+```
