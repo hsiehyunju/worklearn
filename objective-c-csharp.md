@@ -17,6 +17,7 @@
     - [繼承](#協議的繼承)
     - [Optional](#可選方法)
     - [實作](#實作)
+- [Category](#Category)
 
 
 # 字串
@@ -232,4 +233,80 @@ public class TestClass : BaseClass, IProtocol1, IProtocol2
 {
 	;
 }
+```
+
+# Category
+不太確定這個怎麼翻譯，不過用途就是對現有的類別進行額外方法的擴充，而不用動到原始文件。
+> 範例定義為：增加一個方法用於讓字串輸出時，在後面增加123 
+> ex: 王大明 > call method > out : 王大明123
+> 額外文件以 `extension` 命名
+
+1. **Objective-C 規則**
+```objective-c
+@interface 原Class名稱 (Category Name)
+// function 宣告
+@end
+ 
+@implementation 原Class名稱 (Category Name)
+// function 實做
+@end
+```
+
+2. **Objective-C extension.h**
+```objective-c
+@interface NSString (NSStringCategory)
++(NSString*) Add123Number: (NSString*) str;
+@end
+```
+
+3. **Objective-C extension.m**
+```objective-c
+@implementation NSString (NSStringCategory)
+{
+    return [NSString stringWithFormate:@"%@%@", str, @"123"];
+}
+@end
+```
+
+4. **Objective-C 使用**
+```objective-c
+
+// 一定要 import
+#import "extension.h"
+
+// 假設在方法中使用
+-(void) Print {
+    NSString* output = [NSString Add123Number:@"王大明"];
+    NSLog(@"%@", output);
+}
+```
+
+5. **C# extension.cs **
+```csharp
+using System;
+
+namespace ExtensionMethods
+{
+    public static class MyExtensions
+    {
+        public static string Add123Number(this String str)
+        {
+            return $"{str}123";
+        }
+    }
+}
+```
+
+6. **C# extension 使用**
+```csharp
+// 一定要 using
+using ExtensionMethods;
+
+// 假設在方法中使用
+public void Print()
+    {
+        string name = "王大明";
+        string output = name.Add123Number();
+        System.Console.WriteLine(output);
+    }
 ```
