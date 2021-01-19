@@ -238,7 +238,9 @@ public class TestClass : BaseClass, IProtocol1, IProtocol2
 # Category
 不太確定這個怎麼翻譯，不過用途就是對現有的類別進行額外方法的擴充，而不用動到原始文件。
 > 範例定義為：增加一個方法用於讓字串輸出時，在後面增加123 
+
 > ex: 王大明 > call method > out : 王大明123
+
 > 額外文件以 `extension` 命名
 
 1. **Objective-C 規則**
