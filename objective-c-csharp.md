@@ -281,7 +281,7 @@ public class TestClass : BaseClass, IProtocol1, IProtocol2
 }
 ```
 
-5. **C# extension.cs **
+5. **C# extension.cs**
 ```csharp
 using System;
 
