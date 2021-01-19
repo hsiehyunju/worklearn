@@ -9,6 +9,8 @@
 - [類別](#類別)
     - [定義與實現](#類別定義與實現)
     - [靜態與非靜態方法](#靜態方法與非靜態方法的宣告)
+- [繼承](#繼承)
+- [協議](#協議)
 
 
 # 字串
@@ -140,5 +142,43 @@ public class TestStaticMethod
     public static void StaticMethod() {};
     // 公開的非靜態方法，包含實作。
     public void NonStaticMethod() {};
+}
+```
+
+# 繼承
+Objective-C 的繼承與 C# 中的繼承方式一樣。
+
+**Objective-C**
+```objective-c
+@interface TestClass : NSObject
+{
+}
+@end
+```
+
+**C#**
+```csharp
+public class TestClass : BaseClass
+{
+}
+```
+
+# 協議
+Objective-C 中的`協議(Protocol)`，等於 C# 中的`介面(Interface)`。
+
+### 協議的定義
+Objective-C 中定義協議使用`@protocol`關鍵字。
+
+```objective-c 
+@protocol Printable
+    -(void)print:(NSString)str;
+@end
+```
+
+C# 中定義協議使用 `interface` 關鍵字，並於命名中首字採用`I`。
+```csharp
+public interface IPrintable
+{
+    void Print(string str);
 }
 ```
