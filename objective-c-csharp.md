@@ -1,6 +1,6 @@
 # Objective-C 學習歷程
 已有 C# 基礎，因工作需求學習 Objective-C 而做的兩種語言比較，可以讓自己以後快速翻閱。
-參考原文連結 : [iOS開發60分鐘入門](#https://github.com/qinjx/30min_guides/blob/master/ios.md) (Java對照)
+參考原文連結 : [iOS開發60分鐘入門](https://github.com/qinjx/30min_guides/blob/master/ios.md) (Java對照)
 
 # 目錄
 - [字串](#字串)
@@ -213,3 +213,7 @@ Objective-C
 	-(void)print:(NSString)str;
 @end
 ```
+
+在 C# 中，`介面(interface)` 所定義的方法，都是必須被實現的，若有相關需求請使用 `抽象類別(abstract)` 。
+> 對於 C# 中 `interface`、`abstract`、`virtual` 的使用方式，可參考[此連結](https://dotblogs.com.tw/enet/2017/01/04/122935)
+
