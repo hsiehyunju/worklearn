@@ -137,8 +137,8 @@ public class User
 public class TestStaticMethod 
 {
     // 公開的靜態方法，包含實作。
-    public static void StaticMethod();
+    public static void StaticMethod() {};
     // 公開的非靜態方法，包含實作。
-    public void NonStaticMethod();
+    public void NonStaticMethod() {};
 }
 ```
