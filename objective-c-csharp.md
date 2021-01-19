@@ -175,7 +175,7 @@ Objective-C 中定義協議使用`@protocol`關鍵字。
 @end
 ```
 
-C# 中定義協議使用 `interface` 關鍵字，並於命名中首字採用`I`。
+C# 中定義介面使用 `interface` 關鍵字，並於命名中首字採用 `I`。
 ```csharp
 public interface IPrintable
 {
