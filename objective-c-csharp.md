@@ -35,7 +35,7 @@ data.GetName();
 ```
 
 ### 呼叫方法(傳遞參數)
-呼叫 `data` 物件下的 `SetName` 方法，並傳遞一個字串參數時：
+呼叫 `data` 物件下的 `SetName` 方法，並傳遞**一個**字串參數時：
 
 Objective-C
 ```objective-c
@@ -47,7 +47,7 @@ C#
 data.SetName("王大明");
 ```
 
-呼叫 `data` 物件下的 `SetName` 方法，並傳遞多個字串參數時：
+呼叫 `data` 物件下的 `SetName` 方法，並傳遞**多個**字串參數時：
 
 Objective-C-
 ```objective-c
@@ -65,7 +65,7 @@ Objective-C 中的類別分為兩個部分，分別是 `Interface(定義)` 文�
 
 新增一個 User 類別內有兩個字串變數、一個無回傳並有參數的 `SetName` 方法、一個有字串回傳的 `GetName` 方法。
 
-Objective-C Interface User.h
+1. **Objective-C Interface User.h**
 ```objective-c
 @interface User : NSObject
 
@@ -75,7 +75,7 @@ Objective-C Interface User.h
 @end
 ```
 
-Objective-C Implementation User.m
+2. **Objective-C Implementation User.m**
 ```objective-c
 #import "User.h"
 
@@ -97,7 +97,7 @@ Objective-C Implementation User.m
 @end
 ```
 
-C# User.cs
+3. **C# User.cs**
 ```csharp
 public class User 
 {
@@ -115,5 +115,27 @@ public class User
         return String.Format("{0}{1}", firstName, lastName);
         // return $"{firstName}{lastName}";
     }
+}
+```
+
+靜態方法與非靜態方法的宣告
+
+1. **Objective-C TestStaticMethod.h**
+```objective-c 
+@interface TestStaticMethod
++(void) StaticMethod;    // 宣告靜態公開方法，不包含實作，實作請在.m檔中完成。
+-(void) NonStaticMethod; // 宣告非靜態公開方法，不包含實作，實作請在.m檔中完成。
+@end
+```
+
+2. **C# TestStaticMethod.cs**
+```csharp
+```
+public class TestStaticMethod 
+{
+    // 公開的靜態方法，包含實作。
+    public static void StaticMethod();
+    // 公開的非靜態方法，包含實作。
+    public void NonStaticMethod();
 }
 ```
