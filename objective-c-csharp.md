@@ -1,7 +1,7 @@
 # Objective-C 學習歷程
 已有 C# 基礎，因工作需求學習 Objective-C 而做的兩種語言比較，可以讓自己以後快速翻閱。
 
-參考原文連結 : [iOS開發60分鐘入門](https://github.com/qinjx/30min_guides/blob/master/ios.md) (Java對照)
+參考原文連結 : [iOS開發60分鐘入門](https://github.com/qinjx/30min_guides/blob/master/ios.md) (Java對比)
 
 # 目錄
 - [字串](#字串)
