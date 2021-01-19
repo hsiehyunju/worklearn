@@ -306,9 +306,9 @@ using ExtensionMethods;
 
 // 假設在方法中使用
 public void Print()
-    {
-        string name = "王大明";
-        string output = name.Add123Number();
-        System.Console.WriteLine(output);
-    }
+{
+    string name = "王大明";
+    string output = name.Add123Number();
+    System.Console.WriteLine(output);
+}
 ```
