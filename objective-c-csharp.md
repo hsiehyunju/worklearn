@@ -74,7 +74,7 @@ data.SetName("大明","王");
 
 ### 類別定義與實作
 Objective-C 中的類別分為兩個部分，分別是 `Interface(定義)` 文件副檔名為 `.h` 和 `Implementation(實作)` 文件副檔名為 `.m`
-> Interface 的概念最接近的是C、C++裡的 Header files 標頭檔，在 Objective-C 中它與 Implementation 是成雙成對出現，用意是公開(public)方法的實作，以及定義私有（private）變數及方法。
+> Interface 的概念最接近的是C、C++裡的 Header files 標頭檔，在 Objective-C 中它與 Implementation 是成雙成對出現，前者用意是公開(public)方法的實作，後者定義私有（private）變數及方法。
 
 新增一個 User 類別內有兩個字串變數、一個無回傳並有參數的 `SetName` 方法、一個有字串回傳的 `GetName` 方法。
 
