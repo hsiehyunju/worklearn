@@ -11,6 +11,7 @@
     - [靜態與非靜態方法](#靜態方法與非靜態方法的宣告)
 - [繼承](#繼承)
 - [協議](#協議)
+    -[定義](#協議的定義)
 
 
 # 字串
@@ -181,4 +182,20 @@ public interface IPrintable
 {
     void Print(string str);
 }
+```
+
+### 協議的繼承
+在 Objective-C 中協議能夠繼承其他協議，C# 也同樣可以。
+
+```objective-c 
+@interface InterfaceA
+@end
+
+@interface InterfaceB <InterfaceA>
+@end
+```
+
+```csharp
+public interface InterfaceA {}
+public interface InterfaceB : InterfaceA {}
 ```
