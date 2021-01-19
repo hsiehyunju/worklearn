@@ -134,7 +134,6 @@ public class User
 
 2. **C# TestStaticMethod.cs**
 ```csharp
-```
 public class TestStaticMethod 
 {
     // 公開的靜態方法，包含實作。
