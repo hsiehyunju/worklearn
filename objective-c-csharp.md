@@ -7,6 +7,8 @@
     - [呼叫方法-不傳遞參數](#呼叫方法不傳遞參數)
     - [呼叫方法-傳遞參數](#呼叫方法傳遞參數)
 - [類別](#類別)
+    - [定義與實現](#類別的定義與實現)
+    - [靜態與非靜態方法](#靜態方法與非靜態方法的宣告)
 
 
 # 字串
@@ -60,6 +62,8 @@ data.SetName("大明","王");
 ```
 
 # 類別
+
+### 類別定義與實現
 Objective-C 中的類別分為兩個部分，分別是 `Interface(定義)` 文件副檔名為 `.h` 和 `Implementation(實現)` 文件副檔名為 `.m`
 > Interface 的概念最接近的是C、C++裡的 Header files 標頭檔，在 Objective-C 中它與 Implementation 是成雙成對出現，用意是公開(public)方法的實現，以及定義私有（private）變數及方法。
 
@@ -118,7 +122,7 @@ public class User
 }
 ```
 
-靜態方法與非靜態方法的宣告
+### 靜態方法與非靜態方法的宣告
 
 1. **Objective-C TestStaticMethod.h**
 ```objective-c 
