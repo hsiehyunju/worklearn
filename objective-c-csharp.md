@@ -188,6 +188,7 @@ public interface IPrintable
 ### 協議的繼承
 在 Objective-C 中協議能夠繼承其他協議，C# 也同樣可以。
 
+Objective-C
 ```objective-c 
 @interface InterfaceA
 @end
@@ -196,6 +197,7 @@ public interface IPrintable
 @end
 ```
 
+C#
 ```csharp
 public interface InterfaceA {}
 public interface InterfaceB : InterfaceA {}
