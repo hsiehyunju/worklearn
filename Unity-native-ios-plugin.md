@@ -189,7 +189,9 @@ Build 實機測試：
 
 ![build-iphone](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-iphone.png)
 
+結果：
 
+![result](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-result.png)
 
 
 
