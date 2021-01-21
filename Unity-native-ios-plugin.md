@@ -9,6 +9,7 @@
 - [Framework](#framework)
   - [Xcode Project](#xcode-project)
   - [Unity Project](#unity-project)
+  - [Build](#framework-build)
 
 ## Framework
 這一個段落使用 Framework 的形式製作。
@@ -135,3 +136,15 @@ public class Alert : MonoBehaviour
 ```
 ![Unity-Create-scripts](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-alert-code.png)
 
+建立自己的對應 UI：
+
+![Unity-Create-ui](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-ui-design.png)
+
+將 `Alert.cs` 腳本放到想放的物件上，並拉上對應元件：
+
+![Unity-button-settings](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-button-ui-settings.png)
+
+切換平台，並設置好 `Player Settings` 內相關設定
+![Unity-switch-platform](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-switch-platform.png)
+
+Build 輸出 Xcode 專案。
