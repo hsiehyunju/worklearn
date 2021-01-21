@@ -16,6 +16,8 @@
   - [Build](#build-and-test)
 - [Other](#Other)
   - [模擬器測試 Test on iOS Simulator](#test-on-ios-simulator)
+  
+---
 
 ## Framework
 這一個段落使用 Framework 的形式製作。
