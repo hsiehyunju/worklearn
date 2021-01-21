@@ -199,3 +199,6 @@ Build 實機測試：
 ### Test on iOS simulator
 在 Unity 專案中，`Player Settings` -> `Other Settings` -> `Configuration` -> `Target SDK` = `Simulator SDK`。
 ![Test on simulator](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Other-test-on-simulator.png)
+
+若出現錯誤，請修改 `Graphics API` 為下圖：
+![fix-graphics-api](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Other-auto-graphics-api.png)
