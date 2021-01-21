@@ -129,11 +129,11 @@ public class Alert : MonoBehaviour
         if (titleInputField.text != "" && messageInputField.text != "")
         {
             // 判斷平台是 iOS
-            if (Application.platform == RuntimePlatform.IPhonePlayer
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
                 BridgeController.ShowAlertMessage(titleInputField.text, messageInputField.text);
             else
                 Debug.LogError("Not Support");
-        {
+        }
         else
             Debug.LogError("Fieldl is empty");
     }
