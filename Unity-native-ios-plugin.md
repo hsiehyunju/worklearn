@@ -10,6 +10,8 @@
   - [Xcode Project](#xcode-project)
   - [Unity Project](#unity-project)
   - [Build](#build-and-test)
+- [Other](#Other)
+  - [模擬器測試 Test on iOS Simulator](#test-on-ios-simulator)
 
 ## Framework
 這一個段落使用 Framework 的形式製作。
@@ -183,3 +185,17 @@ Build 輸出 Xcode 專案。
 Build 實機測試：
 
 ![build-iphone](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-iphone.png)
+
+
+
+
+
+
+
+
+---
+# 其他
+
+### Test on iOS simulator
+在 Unity 專案中，`Player Settings` -> `Other Settings` -> `Configuration` -> `Target SDK` = `Simulator SDK`。
+![Test on simulator](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Other-test-on-simulator.png)
