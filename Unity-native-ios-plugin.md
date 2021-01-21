@@ -191,7 +191,7 @@ Build 實機測試：
 
 結果：
 
-![result](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-result.png)
+![result](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-result.gif)
 
 
 
