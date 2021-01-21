@@ -1,8 +1,11 @@
 # 製作 Unity 的 Native IOS Plugin
 雖然 Unity 已經是跨平台的引擎，能夠直接輸出 iOS 平台應用程式，但若遇到以下情況，就必須呼叫原生的 iOS 語言：
+- Game Center | e.g. 排行榜、成就 ...等。
+- IAP 應用程式內購。
+- 社群分享 | e.g. 發佈 Facebook、Twitter、原生分享對話框、發送電子郵件 ...等。
+- Signin with Apple。
 - 使用第三方登入平台，該平台未提供 Unity SDK，但有提供 iOS SDK。
-- 串接第三方社群平台的分享功能。
-- 串接 Apple 原生程式碼。
+- 串接 Apple 其他原生程式碼、功能。
 
 範例以 Unity 呼叫 iOS 原生 Alert 來跳出手機顯示訊息。
 
