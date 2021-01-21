@@ -9,7 +9,7 @@
 - [Framework](#framework)
   - [Xcode Project](#xcode-project)
   - [Unity Project](#unity-project)
-  - [Build](#framework-build)
+  - [Build](#build-and-test)
 
 ## Framework
 這一個段落使用 Framework 的形式製作。
@@ -144,8 +144,39 @@ public class Alert : MonoBehaviour
 
 ![Unity-button-settings](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-button-ui-settings.png)
 
+回到 Xcode 專案找到 `.h` 和 `.m` 兩隻檔案，右鍵 `Show in Finder`
+![Show in finder](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-xcodefile-show-in-finder.png)
+
+將文件複製貼到 Unity 中的 `Plugins` 的 `IOS` 下，如圖：
+![copy to unity](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-xcodefile-copy-to-unity.png)
+
+確認兩個文件 Include Platforms 中的 iOS 是勾選狀態：
+
+![check platform](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-check-platform.png)
+
 切換平台，並設置好 `Player Settings` 內相關設定
 
 ![Unity-switch-platform](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-switch-platform.png)
 
 Build 輸出 Xcode 專案。
+
+### Build and Test
+找到輸出的資料夾，開啟 `Unity-iPhone.xcodeproj`。
+![Open-xcode-project](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-open-xcodeproj.png)
+
+找到資料夾結構中的 `BridgeController.m`：
+![find-bridgecontroller](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-find-file.png)
+
+在程式碼的靜態方法中引用 Unity 函示庫
+```objective-c
+// 引用 Unity 函式庫
+[UnityGetGLViewController() persentViewController:alert animated:YES completion:nil];
+```
+![call-unity-framework-method](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-add-code.png)
+
+確保 Project Signing & Capabilities 已正確設置：
+![xcoe-signing](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-xcode-signing.png)
+
+Build 實機測試：
+
+![build-iphone](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-iphone.png)
