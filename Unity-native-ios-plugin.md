@@ -145,6 +145,7 @@ public class Alert : MonoBehaviour
 ![Unity-button-settings](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-button-ui-settings.png)
 
 切換平台，並設置好 `Player Settings` 內相關設定
+
 ![Unity-switch-platform](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-switch-platform.png)
 
 Build 輸出 Xcode 專案。
