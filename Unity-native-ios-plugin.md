@@ -1,18 +1,19 @@
 # 製作 Unity 的 Native IOS Plugin
 雖然 Unity 已經是跨平台的引擎，能夠直接輸出 iOS 平台應用程式，但若遇到以下情況，就必須呼叫原生的 iOS 語言：
-- 使用第三方登入平台，但該平台未提供 Unity SDK，但有提供 iOS SDK。
+- 使用第三方登入平台，該平台未提供 Unity SDK，但有提供 iOS SDK。
 - 串接第三方社群平台的分享功能。
 - 串接 Apple 原生程式碼。
 
 範例以 Unity 呼叫 iOS 原生 Alert 來跳出手機顯示訊息。
 
 - [Framework](#framework)
-  - [Xcode 專案](#xcode-專案)
+  - [Xcode Project](#xcode-project)
+  - [Unity Project](#unity-project)
 
 ## Framework
 這一個段落使用 Framework 的形式製作。
 
-### Xcode 專案
+### Xcode Project
 開啟 Xcode 選擇 `Create a new Xcode Project`。
 ![Create a new project in xcode.](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Xcode-create-project-window.png)
 
@@ -71,3 +72,66 @@ void _ShowAlertMessage(const char* title, const char* message)
 }
 @end
 ```
+
+### Unity Project
+Unity 新增新專案，由於測試用所以我僅選擇 2D Templete，專案名稱自行命名。
+![Unity-create-a-project](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-create-a-project.png)
+
+先建立這樣子的資料夾結構：
+
+![Unity-Create-Folder](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-create-folder.png)
+
+建立串接腳本，我自己命名為 `BridgeController.cs` ，內容如下：
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// DllImport 要使用
+using System.Runtime.InteropServices;
+
+public class BridgeController : MonoBehaviour
+{
+    // 與 C 串接的方法，需與 Xcode Objective-C 中撰寫的方法名一樣
+    [DllImport("__Internal")]
+    private static extern void _ShowAlertMessage(string title, string message);
+    
+    // Unity Call method.
+    public static void ShowAlertMessage(string title, string message)
+    {
+        _ShowAlertMessage(title, message);
+    }
+}
+```
+![Unity-Create-scripts](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-bridgecontroller-code.png)
+
+建立 Unity 互動腳本，我自己命名為 `Alert.cs` ，內容如下：
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Alert : MonoBehaviour
+{
+    
+    // 對應欄位輸入 UI
+    public InputField titleInputField, messageInputField;
+    
+    // 按鈕按下呼叫的方法
+    public void ButtonClick()
+    {
+        // 判斷欄位有輸入文字
+        if (titleInputField.text != "" && messageInputField.text != "")
+        {
+            // 判斷平台是 iOS
+            if (Application.platform == RuntimePlatform.IPhonePlayer
+                BridgeController.ShowAlertMessage(titleInputField.text, messageInputField.text);
+            else
+                Debug.LogError("Not Support");
+        {
+        else
+            Debug.LogError("Fieldl is empty");
+    }
+}
+```
+![Unity-Create-scripts](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-alert-code.png)
+
