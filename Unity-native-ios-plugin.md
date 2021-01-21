@@ -145,9 +145,11 @@ public class Alert : MonoBehaviour
 ![Unity-button-settings](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-button-ui-settings.png)
 
 回到 Xcode 專案找到 `.h` 和 `.m` 兩隻檔案，右鍵 `Show in Finder`
+
 ![Show in finder](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-xcodefile-show-in-finder.png)
 
 將文件複製貼到 Unity 中的 `Plugins` 的 `IOS` 下，如圖：
+
 ![copy to unity](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Unity-xcodefile-copy-to-unity.png)
 
 確認兩個文件 Include Platforms 中的 iOS 是勾選狀態：
