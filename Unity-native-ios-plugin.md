@@ -14,6 +14,7 @@
   - [Xcode Project](#xcode-project)
   - [Unity Project](#unity-project)
   - [Build](#build-and-test)
+  - [Unity Callback](#unity-callback)
 - [Other](#Other)
   - [模擬器測試 Test on iOS Simulator](#test-on-ios-simulator)
   
@@ -61,6 +62,8 @@ NS_ASSUME_NONNULL_END
 #import "BridgeController.h"
 #import "UIKit/UIKit.h"
 
+extern UIViewController *UnityGetGLViewController();
+
 // C Method
 void _ShowAlertMessage(const char* title, const char* message)
 {
@@ -78,6 +81,7 @@ void _ShowAlertMessage(const char* title, const char* message)
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertStyleDefault handler:^(UIAlertAction *action){}];
     
     [alert addAction:defaultAction];
+    [UnityGetGLViewController() presentViewController:alert animated:YES completion:nil];
 }
 @end
 ```
@@ -174,17 +178,6 @@ Build 輸出 Xcode 專案。
 找到輸出的資料夾，開啟 `Unity-iPhone.xcodeproj`。
 ![Open-xcode-project](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-open-xcodeproj.png)
 
-找到資料夾結構中的 `BridgeController.m`：
-
-![find-bridgecontroller](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-find-file.png)
-
-在程式碼的靜態方法中引用 Unity 函示庫
-```objective-c
-// 引用 Unity 函式庫
-[UnityGetGLViewController() persentViewController:alert animated:YES completion:nil];
-```
-![call-unity-framework-method](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-add-code.png)
-
 確保 Project Signing & Capabilities 已正確設置：
 ![xcoe-signing](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-xcode-signing.png)
 
@@ -196,10 +189,8 @@ Build 實機測試：
 
 ![result](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Build-result.gif)
 
-
-
-
-
+### Unity Callback
+在某些時候，Unity 需要透過原生語言取得網路資料時，需要在背景等待資料回傳，這時候就需要利用 Callback 設計讓資料回傳時，執行相應的處理。
 
 ---
 # 其他
