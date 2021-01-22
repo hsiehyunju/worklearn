@@ -15,6 +15,7 @@
   - [Unity Project](#unity-project)
   - [Build](#build-and-test)
   - [Unity Callback](#unity-callback)
+    - [UnitySendMessage](#using-unitysendmessage)
 - [Other](#Other)
   - [模擬器測試 Test on iOS Simulator](#test-on-ios-simulator)
   
@@ -191,6 +192,39 @@ Build 實機測試：
 
 ### Unity Callback
 在某些時候，Unity 需要透過原生語言取得網路資料時，需要在背景等待資料回傳，這時候就需要利用 Callback 設計讓資料回傳時，執行相應的處理。
+
+#### Using `UnitySendMessage`
+這種方式類似於 Unity 中使用 SendMessage 呼叫 Method，雖然他便捷易使用，但還是有其使用上的限制，可參考[官方文檔](https://docs.unity3d.com/Manual/PluginsForIOS.html)
+
+開啟 Native Xcode 專案， 在 C Method 下加入 `UnitySendMessage` 方法，並帶有三個字串參數：
+| parm 1 | parm 2 | parm 3 |
+|---------|---------|----------|
+| 物件名稱 | 方法名稱 | 自訂參數訊息 |
+![unitysendmessage-c-function](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-add-c-fun.png)
+
+接續上面，在按下 Alert 中的 OK 按鈕時，回傳一個參數讓 Unity Log 出來。
+![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-alert-ok-action.png)
+
+修改完儲存後，再將 `.h` 、 `.m` 複製到 Unity 一次。
+在 Unity 中新增對應的物件，所以建立一個空物件命名為 `BridgeController`，並加入一腳本。
+![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-unity-create-object-and-script.png)
+
+腳本內容如下：
+```csharp
+using UnityEngine;
+
+public class BridgeCallback : MonoBehaviour
+{
+    public void _iosCallBack(string msg)
+    {
+      Debug.Log(msg);
+    }
+}
+```
+![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-script-content.png)
+
+重新 Build。
+
 
 ---
 # 其他
