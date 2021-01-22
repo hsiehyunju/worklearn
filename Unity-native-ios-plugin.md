@@ -208,6 +208,7 @@ Build 實機測試：
 
 修改完儲存後，再將 `.h` 、 `.m` 複製到 Unity 一次。
 在 Unity 中新增對應的物件，所以建立一個空物件命名為 `BridgeController`，並加入一腳本。
+
 ![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-unity-create-object-and-script.png)
 
 腳本內容如下：
