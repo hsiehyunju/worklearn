@@ -200,6 +200,7 @@ Build 實機測試：
 | parm 1 | parm 2 | parm 3 |
 |---------|---------|----------|
 | 物件名稱 | 方法名稱 | 自訂參數訊息 |
+
 ![unitysendmessage-c-function](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-add-c-fun.png)
 
 接續上面，在按下 Alert 中的 OK 按鈕時，回傳一個參數讓 Unity Log 出來。
