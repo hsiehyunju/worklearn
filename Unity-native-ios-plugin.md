@@ -29,7 +29,7 @@
 選擇 iOS 分頁中的 Framework 樣板。
 ![Choose a template in xcode](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Xcode-choose-template-for-project.png)
 
-填寫專案名稱，這裡以 `UnityIOSPlugin` 命名專案，選擇 Personal Team 或其他團隊，以 Objective-C 示範，Swift 可能不適用。
+填寫專案名稱，這裡以 `UnityIOSPlugin` 命名專案，選擇 Personal Team 或其他團隊，以 Objective-C 示範，Swift 需再製作與 Objective-C 的串接。
 ![Choose options for project in xcode](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Xcode-choose-options-for-project.png)
 
 儲存路徑依照個人喜好設定，不附圖。
