@@ -225,8 +225,8 @@ public class BridgeCallback : MonoBehaviour
 ```
 ![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-script-content.png)
 
-重新 Build。
-
+重新 Build，執行後可以看到 Xcode 的視窗內確實由 Unity 發出了 Debug 訊息。
+![unitysendmessage-alert-ok](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeIOSPlugin/Callback-xcode-debug-window-result.png)
 
 ---
 # 其他
