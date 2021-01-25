@@ -6,6 +6,7 @@
 - [Library](#library)
   - [Android Studio](#android-studio-project)
   - [Unity](#unity-project)
+  - [Callback](#unity-callback)
   
 ---
 
@@ -78,7 +79,7 @@ public static boolean PrintLog(String msg)
 
 將 `Library名稱-release.aar` 複製到 Unity : Assets\Plugins\Android：
 
-![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_import_aar.png)
+![Unity import aar](Upload/UnityNativeAndroidPlugin/Unity_import_aar.png)
 
 新增 `BridgeController.cs` 腳本。作為與 Android Java 溝通的程式：
 ```csharp
@@ -101,7 +102,7 @@ public class BridgeController : MonoBehaviour
 }
 ```
 
-![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_bridgecontroller_cs.png)
+![Unity bridgecontroller.cs](Upload/UnityNativeAndroidPlugin/Unity_bridgecontroller_cs.png)
 
 接著新增 `Test.cs` 腳本，用來呼叫 BridgeController，並掛在 Camera 物件上：
 
@@ -120,4 +121,125 @@ public class Test : MonoBehaviour
 
 Unity Build APK，並記得設定相關環境。
 
-![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_build.png)
+![Unity build](Upload/UnityNativeAndroidPlugin/Unity_build.png)
+
+開啟 Android Studio 切換到 `Logcat` 視窗，標籤可以打上 Unity：
+
+![test](Upload/UnityNativeAndroidPlugin/Unity_test_androidstudio.png)
+
+安裝 APK 到模擬器上並打開，可以觀察 `Logcat` 視窗：
+
+![test](Upload/UnityNativeAndroidPlugin/Unity_test_logcat.png)
+
+---
+
+### Unity Callback
+這邊比較特別的是，順便紀錄在 Android Studio 引用 Unity 的 jar
+
+> 開啟以下路徑：C:\Program Files\Unity\Hub\Editor\2018.4.30f1\Editor\Data\PlaybackEngines\AndroidPlayer\Variations\mono\Release\Classes
+> Unity 版本不同，位置可能不同，需搜尋一下
+
+將 `classes.jar` 複製到 Android Studio Library lib 資料夾下：
+
+![copy paste](Upload/UnityNativeAndroidPlugin/UnityCallback_copypaste_jar.png)
+
+複製過去
+
+![copy jar](Upload/UnityNativeAndroidPlugin/UnityCallback_copy_unity_jar.png)
+
+對 `classes.jar` 右鍵 `Add As Library...` 選擇 Library
+
+![Create library](Upload/UnityNativeAndroidPlugin/UnityCallback_create_library.png)
+
+由於這裡引入 `classes.jar` 後，輸出到 Unity Build 之後會重複並錯誤，所以要在 Gradle 做設定，讓 Gradle 編譯可以過，但並不打包
+開啟 Library 下的 Gradle ，修改後記得 `Sync Now`：
+
+![Unity folder](Upload/UnityNativeAndroidPlugin/UnityCallback_create_library.png)
+
+開啟 `BridgeController.java` 修改成以下：
+```java
+package com.test.unityplugin;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import com.unity3d.player.UnityPlayer;
+
+public class BridgeController {
+
+    public static void ShowAlertDialog(String title, String msg)
+    {
+
+        // 新增 OK 按鈕的對應 Action
+        DialogInterface.OnClickListener alertOKBtnClick = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // 呼叫 Unity Send Message ("物件名稱","方法名稱","參數")
+                UnityPlayer.UnitySendMessage("UnityCallback", "AlertOK", "");
+
+            }
+        };
+
+        // 新增 Cancel 按鈕的對應 Action
+        DialogInterface.OnClickListener alertCancelBtnClick = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // 呼叫 Unity Send Message ("物件名稱","方法名稱","參數")
+                UnityPlayer.UnitySendMessage("UnityCallback", "AlertCancel", "");
+
+            }
+        };
+
+        // Java AlertDialog
+        new AlertDialog.Builder(UnityPlayer.currentActivity)
+                .setTitle(title)
+                .setMessage(msg)
+                .setPositiveButton("OK", alertOKBtnClick)
+                .setNegativeButton("Cancel", alertCancelBtnClick)
+                .show();
+    }
+}
+```
+
+利用 Gradle 視窗的 `Clear` 先刪除舊的檔案，再用 `Build` 重新編譯，編譯後重新覆蓋 Unity 內的檔案。
+
+建立一個空物件 `UnityCallback`，並增加同名腳本，內容如下：
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UnityCallback : MonoBehaviour
+{
+
+    public InputField title, message;
+
+    public void Alert()
+    {
+        BridgeController.ShowAlertMessage(title.text, message.text);
+    }
+
+
+    public void AlertOK()
+    {
+        Debug.Log("使用者點選 OK");
+    }
+
+    public void AlertCancel()
+    {
+        Debug.LogError("使用者 Cancel");
+    }
+}
+```
+
+建立 UI 如下：
+
+![Unity UI](Upload/UnityNativeAndroidPlugin/UnityCallback_UI.png)
+
+Unity 重新輸出 APK 測試：
+
+
+![Unity UI](Upload/UnityNativeAndroidPlugin/UnityCallback_simulate_test.png)
+
+
+![Unity UI](Upload/UnityNativeAndroidPlugin/UnityCallback_result.png)
