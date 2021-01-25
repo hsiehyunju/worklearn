@@ -4,6 +4,8 @@
 
 ## 目錄
 - [Library](#library)
+  - [Android Studio](#android-studio-project)
+  - [Unity](#unity-project)
 
 ## Library
 這一個段落使用 Library 的形式製作。
@@ -34,7 +36,43 @@
 ![Library setting](Upload/UnityNativeAndroidPlugin/AndroidStudio_library_setting.png)
 
 檢查 `Project` 中是否有 Library 的資料夾
+
 ![Check Folder](Upload/UnityNativeAndroidPlugin/AndroidStudio_project_have_library_folder.png)
 
 打開 Library 資料夾下的 `build.gradle` 刪減剩下圖，並按同步按鈕：
+
 ![Modify build gradle](Upload/UnityNativeAndroidPlugin/AndroidStudio_modify_build_gradle.png)
+
+找到以下路徑 UnityPlugin/src/main/java/`專案名稱` 新建 Java Class：
+
+![Create java class](Upload/UnityNativeAndroidPlugin/AndroidStudio_create_java_class.png)
+
+新的 Java Class 命名為 `BridgeController`，可以自行命名：
+
+![Create java class](Upload/UnityNativeAndroidPlugin/AndroidStudio_create_java_name.png)
+
+新增一個靜態的方法，讓 Unity 傳遞文字給這個方法，該方法回傳 bool 值：
+```java
+public static boolean PrintLog(String msg)
+{
+    Log.i("Unity", msg);
+    return true;
+    }
+```
+
+利用 Gradle 視窗 build ：
+
+![Gradle build](Upload/UnityNativeAndroidPlugin/AndroidStudio_build_first.png)
+
+
+### Unity Project
+新增一個測試用專案，並選好儲存位置，創建如下資料夾結構：
+
+![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_folder.png)
+
+打開剛才 Android Studio 專案，找到剛才打包的 `aar` 文件，路徑如下：
+> 專案資料夾\Library名稱\build\outputs\aar
+
+將 `Library名稱-release.aar` 複製到 Unity : Assets\Plugins\Android：
+
+![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_import_aar.png)
