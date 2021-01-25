@@ -11,4 +11,4 @@
 ### Android Studio Project
 開啟 Android Studio 選擇 `Create New Project`。
 
-![Create new project in android studio](https://github.com/hsiehyunju/worklearn/blob/main/Upload/UnityNativeAndroidPlugin/AndroidStudio_create_project.png)
+![Create new project in android studio](Upload/UnityNativeAndroidPlugin/AndroidStudio_create_project.png)
