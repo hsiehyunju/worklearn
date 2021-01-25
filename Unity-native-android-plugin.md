@@ -60,7 +60,7 @@ public static boolean PrintLog(String msg)
 {
     Log.i("Unity", msg);
     return true;
-    }
+}
 ```
 
 利用 Gradle 視窗 build ：
@@ -228,6 +228,24 @@ public class UnityCallback : MonoBehaviour
     public void AlertCancel()
     {
         Debug.LogError("使用者 Cancel");
+    }
+}
+```
+
+原本的 Test.cs 可以刪除，BirdgeController 內容改成以下：
+```csharp
+using UnityEngine;
+
+public class BridgeController : MonoBehaviour
+{
+    public static void ShowAlertMessage(string title, string msg)
+    {
+        // Java Library package name + class name.
+        using (AndroidJavaClass jc = new AndroidJavaClass("com.test.unityplugin.BridgeController"))
+        {
+            // 呼叫靜態方法
+            jc.CallStatic("ShowAlertDialog", title, msg);
+        }
     }
 }
 ```
