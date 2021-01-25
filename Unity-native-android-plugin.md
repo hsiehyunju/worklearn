@@ -6,6 +6,8 @@
 - [Library](#library)
   - [Android Studio](#android-studio-project)
   - [Unity](#unity-project)
+  
+---
 
 ## Library
 這一個段落使用 Library 的形式製作。
@@ -64,6 +66,7 @@ public static boolean PrintLog(String msg)
 
 ![Gradle build](Upload/UnityNativeAndroidPlugin/AndroidStudio_build_first.png)
 
+---
 
 ### Unity Project
 新增一個測試用專案，並選好儲存位置，創建如下資料夾結構：
@@ -76,3 +79,45 @@ public static boolean PrintLog(String msg)
 將 `Library名稱-release.aar` 複製到 Unity : Assets\Plugins\Android：
 
 ![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_import_aar.png)
+
+新增 `BridgeController.cs` 腳本。作為與 Android Java 溝通的程式：
+```csharp
+using UnityEngine;
+
+public class BridgeController : MonoBehaviour
+{
+    public static void PrintLog()
+    {
+        // Java Library package name + class name.
+        using (AndroidJavaClass jc = new AndroidJavaClass("com.test.unityplugin.BridgeController"))
+        {
+            // 呼叫靜態方法
+            if (jc.CallStatic<bool>("PrintLog", "Unity 送出的 Log"))
+            {
+                Debug.Log("Unity 收到方法回傳");
+            }
+        }
+    }
+}
+```
+
+![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_bridgecontroller_cs.png)
+
+接著新增 `Test.cs` 腳本，用來呼叫 BridgeController，並掛在 Camera 物件上：
+
+```csharp
+using UnityEngine;
+
+public class Test : MonoBehaviour
+{
+
+    void Start()
+    {
+        BridgeController.PrintLog();
+    }
+}
+```
+
+Unity Build APK，並記得設定相關環境。
+
+![Unity folder](Upload/UnityNativeAndroidPlugin/Unity_build.png)
