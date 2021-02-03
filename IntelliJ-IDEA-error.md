@@ -16,6 +16,8 @@
 解決方式是手動降版本，或等官方修復。
 > 52.2.5 下載地址：[https://plugins.jetbrains.com/plugin/9212-flutter/versions/stable/107560](https://plugins.jetbrains.com/plugin/9212-flutter/versions/stable/107560)
 
+---
+
 ### 手動安裝 Plugin
 以安裝 `flutter` 為例，首先解除安裝相關插件
 
