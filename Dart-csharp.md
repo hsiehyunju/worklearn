@@ -41,7 +41,7 @@ Console.WriteLine($"tau is {2 * pi});
 ### 函式 Function
 #### 引數 Arguments
 ##### 可選引數 Optional
-Dart、C# 在宣告可選引數時，共通的特點就是都必須放在非可選引數後面。
+Dart、C# 在宣告可選引數時，共通的特點就是都**必須放在非可選引數後面**。
 ||Dart|C#|
 |---------|---------|----------|
 |限制|{}或[]包覆|必須有初始值|
@@ -52,6 +52,17 @@ Dart `{}`、`[]` 比較
 |初始值|可不用|可不用|
 |變數名稱|use|unuse|
 |必須按順序傳遞|NO|YES|
+
+```dart
+PrintPerson(String name, {int age, String gender}) {
+  // age和gender為可選參數，可以不傳
+}
+
+PrintPerson2(String name ,[int age, String gender]) { 
+  //age和gender為可選參數，不使用變數名稱，依照順序傳值
+  //可選參數需定義於固定參數後面
+}
+```
 
 ---
 ### 集合 Collections
