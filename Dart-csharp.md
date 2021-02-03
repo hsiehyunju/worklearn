@@ -9,7 +9,6 @@
 
 ---
 ### 常數 Constant
-Keyword
 ||Dart|C#|
 |---------|---------|----------|
 |編譯常量 compile-time constants|`const`|`const`|
