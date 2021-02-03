@@ -8,4 +8,4 @@
 - [iOS strong、weak 差別](https://www.appcoda.com.tw/memory-management-swift/)
 
 錯誤排除紀錄
-- [IntelliJ IDEA](intellij-idea-error)
+- [IntelliJ IDEA](IntelliJ-IDEA-error.md)
