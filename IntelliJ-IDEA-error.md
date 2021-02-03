@@ -18,19 +18,25 @@
 
 ### 手動安裝 Plugin
 以安裝 `flutter` 為例，首先解除安裝相關插件
+
 ![uninstall plugin](Upload/Error/IntelliJ_IDEA_flutter_uninstall.png)
 
 確認
+
 ![uninstall checkbox](Upload/Error/IntelliJ_IDEA_flutter_uninstall_checkbox.png)
 
 重新啟動
+
 ![restart ide](Upload/Error/IntelliJ_IDEA_flutter_restart_ide.png)
 
 按下 IDE 上方的小齒輪，Install Plugin from Disk
+
 ![Install plugin](Upload/Error/IntelliJ_IDEA_flutter_install_plugin_from_disk.png)
 
 選擇下載的安裝包
+
 ![Select package](Upload/Error/IntelliJ_IDEA_flutter_select_download_package.png)
 
 再次重啟
+
 ![restart ide agagin](Upload/Error/IntelliJ_IDEA_flutter_restart_ide_again.png)
