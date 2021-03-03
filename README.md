@@ -7,6 +7,7 @@
 - [Unity Native IOS Plugin](Unity-native-ios-plugin.md)
 - [Unity Native Android Plugin](Unity-native-android-plugin.md)
 - [iOS strong、weak 差別](https://www.appcoda.com.tw/memory-management-swift/)
+- [Linux CommandLine 筆記](Linux_command.md)
 
 錯誤排除紀錄
 - [IntelliJ IDEA](IntelliJ-IDEA-error.md)
