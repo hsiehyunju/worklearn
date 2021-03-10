@@ -86,4 +86,4 @@ latest: Pulling from library/nginx
 $ docker ps
 ```
 
-![檢查 Docker container 是否運行](Upload/Docker-Practice/Docker-running-list)
+![檢查 Docker container 是否運行](Upload/Docker-Practice/Docker-running-list.png)
